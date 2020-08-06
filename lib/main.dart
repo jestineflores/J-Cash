@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import './transaction.dart';
+import './models/transaction.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,6 +32,10 @@ class MyHomePage extends StatelessWidget {
       date: DateTime.now(),
     ),
   ];
+  String titleInput;
+  String amountInput;
+  // final titleController = TextEditingController();
+  // final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -60,13 +64,19 @@ class MyHomePage extends StatelessWidget {
                         children: <Widget>[
                           TextField(
                             decoration: InputDecoration(labelText: 'Purchase'),
+                            onChanged: (value) => titleInput = value,
+                            // controller: titleController,
                           ),
                           TextField(
-                              decoration: InputDecoration(labelText: 'Price')),
+                            decoration: InputDecoration(labelText: 'Price'),
+                            onChanged: (value) => amountInput = value,
+                            // controller: amountController,
+                          ),
                           FlatButton(
-                              child: Text('Add Transaction'),
-                              textColor: Colors.purple,
-                              onPressed: () {}),
+                            child: Text('Add Transaction'),
+                            textColor: Colors.purple,
+                            onPressed: () {},
+                          ),
                         ]),
                   )),
               Column(
